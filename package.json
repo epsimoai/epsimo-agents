@@ -1,0 +1,50 @@
+{
+    "name": "epsimo-cli",
+    "version": "0.3.3",
+    "description": "Epsimo CLI - TUI dashboard, smart CLI, AI agents, projects, threads, Virtual Database, and deployments from the terminal.",
+    "bin": {
+        "epsimo": "bin/epsimo.js"
+    },
+    "scripts": {
+        "verify": "python3 verify_skill.py",
+        "test": "python3 scripts/test_all_skills.py",
+        "auth": "python3 epsimo/auth.py"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/epsimoai/epsimo-agents.git"
+    },
+    "keywords": [
+        "epsimo",
+        "cli",
+        "tui",
+        "ai-agent",
+        "ai-framework",
+        "virtual-database",
+        "threads",
+        "assistants",
+        "conversation-ai",
+        "agent-sdk",
+        "multi-agent"
+    ],
+    "author": "Epsimo AI",
+    "license": "MIT",
+    "engines": {
+        "node": ">=14.0.0"
+    },
+    "files": [
+        "README.md",
+        "LICENSE",
+        "bin/",
+        "verify_skill.py",
+        "test_sdk.py",
+        "epsimo/",
+        "!epsimo/**/__pycache__",
+        "docs/",
+        "requirements.txt",
+        "skills/",
+        "install.sh",
+        "install.ps1",
+        "pyproject.toml"
+    ]
+}

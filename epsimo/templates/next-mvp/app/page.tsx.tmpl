@@ -1,0 +1,41 @@
+"use client";
+
+import { useState, useCallback } from "react";
+import { ThreadChat } from "@/components/epsimo";
+import DatabasePanel from "@/components/epsimo/DatabasePanel/DatabasePanel";
+import styles from "./page.module.css";
+
+export default function Home() {
+  const [threadId, setThreadId] = useState<string | null>(null);
+  const [dbRefreshKey, setDbRefreshKey] = useState(0);
+
+  const handleResponseComplete = useCallback(() => {
+    setDbRefreshKey(k => k + 1);
+  }, []);
+
+  return (
+    <main className={styles.main}>
+      <header className={styles.header}>
+        <div className={styles.titleGroup}>
+          <h1>{{PROJECT_NAME}}</h1>
+          <span className={styles.version}>v0.1.0</span>
+        </div>
+        <p>AI-Powered MVP built with Epsimo Agent Framework</p>
+      </header>
+
+      <div className={styles.content}>
+        <aside className={styles.sidebar}>
+          <DatabasePanel threadId={threadId} refreshKey={dbRefreshKey} />
+        </aside>
+
+        <section className={styles.chatSection}>
+          <ThreadChat
+            assistantId="{{ASSISTANT_ID}}"
+            onThreadCreated={setThreadId}
+            onResponseComplete={handleResponseComplete}
+          />
+        </section>
+      </div>
+    </main>
+  );
+}
